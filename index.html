@@ -34,13 +34,10 @@
     <!-- 
       MARK: Main
     -->
-    <main class="container h-screen flex justify-center items-center">
-      <div class="card bg-base-100 w-64 sm:w-80 md:w-96 shadow-xl">
+    <main class="h-screen flex justify-center items-center glass">
+      <div class="card bg-slate-100 w-64 sm:w-80 shadow-2xl">
         <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Pattern"
-          />
+          <img src="tavob.jpg" alt="Pattern" class="w-full h-52 object-cover" />
         </figure>
         <div class="card-body">
           <h1 class="card-title mb-1">Taskey &mdash; Organize yourself!</h1>
@@ -58,6 +55,10 @@
           <div class="form-control" data-task-container>
             <!-- Single Task -->
             <label class="label cursor-pointer">
+              <span class="label-text">Remember me</span>
+              <input type="checkbox" class="checkbox checkbox-primary" />
+            </label>
+            <label class="label cursor-pointer bg-slate-200 rounded p-2">
               <span class="label-text">Remember me</span>
               <input
                 type="checkbox"
