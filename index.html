@@ -26,7 +26,7 @@
           href="https://github.com/gliese-sketch/taskey"
           target="_blank"
         >
-          <i class="ti ti-brand-github text-2xl"></i>
+          <i class="ti ti-brand-github text-xl"></i>
         </a>
       </div>
     </div>
@@ -34,19 +34,37 @@
     <!-- 
       MARK: Main
     -->
-    <main class="container h-screen flex items-center">
-      <div class="card bg-base-100 w-64 sm:w-80 md:w-96 mx-auto shadow-xl">
+    <main class="container h-screen flex justify-center items-center">
+      <div class="card bg-base-100 w-64 sm:w-80 md:w-96 shadow-xl">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
+            alt="Pattern"
           />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">Taskey &mdash; Organize yourself!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+          <h1 class="card-title mb-1">Taskey &mdash; Organize yourself!</h1>
+
+          <!-- Form -->
+          <form data-form>
+            <input
+              type="text"
+              placeholder="Add task"
+              class="input input-bordered w-full max-w-xs"
+            />
+          </form>
+
+          <!-- Task Container -->
+          <div class="form-control" data-task-container>
+            <!-- Single Task -->
+            <label class="label cursor-pointer">
+              <span class="label-text">Remember me</span>
+              <input
+                type="checkbox"
+                checked="checked"
+                class="checkbox checkbox-primary"
+              />
+            </label>
           </div>
         </div>
       </div>
@@ -63,6 +81,8 @@
         </p>
       </aside>
     </footer>
+
+    <!-- Scripts -->
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
