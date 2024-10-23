@@ -21,17 +21,48 @@
         <a class="btn btn-ghost text-xl">Taskey</a>
       </div>
       <div class="flex-none">
-        <button class="btn btn-square btn-ghost">
+        <a
+          class="btn btn-square btn-ghost"
+          href="https://github.com/gliese-sketch/taskey"
+          target="_blank"
+        >
           <i class="ti ti-brand-github text-2xl"></i>
-        </button>
+        </a>
       </div>
     </div>
+
     <!-- 
       MARK: Main
     -->
+    <main class="container h-screen flex items-center">
+      <div class="card bg-base-100 w-64 sm:w-80 md:w-96 mx-auto shadow-xl">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Taskey &mdash; Organize yourself!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <!-- 
       MARK: Footer
     -->
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+      <aside>
+        <p>
+          Copyright © {new Date().getFullYear()} - All right reserved by
+          <a href="https://github.com/gliese-sketch">Gliese Sketch</a>
+        </p>
+      </aside>
+    </footer>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
