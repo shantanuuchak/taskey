@@ -43,7 +43,7 @@
       MARK: Main
     -->
     <main class="min-h-screen flex justify-center items-center glass">
-      <div class="card bg-slate-100 w-64 sm:w-80 shadow-2xl">
+      <div class="card bg-slate-100 w-64 sm:w-80 shadow-2xl my-5">
         <figure>
           <img src="tavob.jpg" alt="Pattern" class="w-full h-52 object-cover" />
         </figure>
@@ -56,11 +56,12 @@
               type="text"
               placeholder="Add task"
               class="input input-bordered w-full max-w-xs"
+              data-user-input
             />
           </form>
 
           <!-- Task Container -->
-          <div class="form-control" data-task-container>
+          <div class="form-control flex flex-col gap-1" data-task-container>
             <!-- Single Task -->
             <label class="label cursor-pointer">
               <span class="label-text">Remember me</span>
@@ -70,47 +71,7 @@
               <span class="label-text">Remember me</span>
               <input
                 type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-              />
-            </label>
-            <label class="label cursor-pointer bg-slate-200 rounded p-2">
-              <span class="label-text">Remember me</span>
-              <input
-                type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-              />
-            </label>
-            <label class="label cursor-pointer bg-slate-200 rounded p-2">
-              <span class="label-text">Remember me</span>
-              <input
-                type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-              />
-            </label>
-            <label class="label cursor-pointer bg-slate-200 rounded p-2">
-              <span class="label-text">Remember me</span>
-              <input
-                type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-              />
-            </label>
-            <label class="label cursor-pointer bg-slate-200 rounded p-2">
-              <span class="label-text">Remember me</span>
-              <input
-                type="checkbox"
-                checked="checked"
-                class="checkbox checkbox-primary"
-              />
-            </label>
-            <label class="label cursor-pointer bg-slate-200 rounded p-2">
-              <span class="label-text">Remember me</span>
-              <input
-                type="checkbox"
-                checked="checked"
+                checked
                 class="checkbox checkbox-primary"
               />
             </label>
