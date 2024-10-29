@@ -9,7 +9,17 @@ const inputEl = document.querySelector("[data-user-input]");
 const taskContainerEl = document.querySelector("[data-task-container]");
 
 // Variables
-const state = [];
+let state = [];
+
+function toggleCompleted(id) {
+  state = state.map((task) => {
+    if (id === task.id) {
+      return { ...task, isCompleted: !task.isCompleted };
+    }
+
+    return task;
+  });
+}
 
 // MARK: Render
 function renderTasks() {
@@ -39,15 +49,14 @@ formEl.addEventListener("submit", (e) => {
 
   renderTasks();
 
-  console.log(state);
-
   //  Clearing input value
   inputEl.value = "";
 });
 
 taskContainerEl.addEventListener("click", (e) => {
   if (e.target.tagName === "INPUT") {
-    console.log(e.target.id);
+    toggleCompleted(+e.target.id);
+    renderTasks();
   }
 });
 
