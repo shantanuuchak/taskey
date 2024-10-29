@@ -1,7 +1,7 @@
 import "./index.css";
 
 import SingleTask from "./components/SingleTask";
-import { titleCase } from "./utils";
+import { titleCase, randomID } from "./utils";
 
 // === MARK: DOM
 const formEl = document.querySelector("[data-form]");
@@ -29,6 +29,7 @@ function renderTasks() {
   state.forEach((task) => {
     frag.appendChild(SingleTask(task.text, task.isCompleted, task.id));
   });
+
   taskContainerEl.appendChild(frag);
 }
 
@@ -41,7 +42,7 @@ formEl.addEventListener("submit", (e) => {
   const newTask = {
     text: titleCase(inputEl.value),
     isCompleted: false,
-    id: state.length,
+    id: randomID(),
   };
 
   //  Adding
@@ -55,7 +56,11 @@ formEl.addEventListener("submit", (e) => {
 
 taskContainerEl.addEventListener("click", (e) => {
   if (e.target.tagName === "INPUT") {
-    toggleCompleted(+e.target.id);
+    toggleCompleted(e.target.id);
+
+    // To show uncompleted first
+    state.sort((a, b) => a.isCompleted - b.isCompleted);
+
     renderTasks();
   }
 });
