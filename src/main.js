@@ -5,11 +5,10 @@ import SingleTask from "./components/SingleTask";
 import { titleCase, randomID } from "./utils";
 import { formEl, inputEl, taskContainerEl } from "./domSelection";
 
-localforage.setDriver(localforage.LOCALSTORAGE);
-
 // MARK: State
 let state = [];
 
+localforage.setDriver(localforage.LOCALSTORAGE);
 function updateLocal() {
   localforage.setItem("tasks", state);
 }
