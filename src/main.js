@@ -1,15 +1,29 @@
 import "./index.css";
-
+import localforage from "localforage";
 import SingleTask from "./components/SingleTask";
 import { titleCase, randomID } from "./utils";
+import { formEl, inputEl, taskContainerEl } from "./domSelection";
 
-// === MARK: DOM
-const formEl = document.querySelector("[data-form]");
-const inputEl = document.querySelector("[data-user-input]");
-const taskContainerEl = document.querySelector("[data-task-container]");
+localforage.setDriver(localforage.LOCALSTORAGE);
 
-// Variables
+// MARK: State
 let state = [];
+
+function updateLocal() {
+  localforage.setItem("tasks", state);
+}
+
+localforage.getItem("tasks").then((data) => {
+  state = data || [];
+  renderTasks();
+});
+
+function clearTasks() {
+  state.length = 0;
+  updateLocal();
+  renderTasks();
+  inputEl.value = "";
+}
 
 function toggleCompleted(id) {
   state = state.map((task) => {
@@ -19,6 +33,8 @@ function toggleCompleted(id) {
 
     return task;
   });
+
+  updateLocal();
 }
 
 // MARK: Render
@@ -33,10 +49,13 @@ function renderTasks() {
   taskContainerEl.appendChild(frag);
 }
 
-// MARK: Listener
+// MARK: Listeners
+// On new task add
 formEl.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent refresh
   if (!inputEl.value) return; // Gaurd Clause
+
+  if (inputEl.value === ":clearall") return clearTasks();
 
   //  Creating new task
   const newTask = {
@@ -48,18 +67,25 @@ formEl.addEventListener("submit", (e) => {
   //  Adding
   state.unshift(newTask);
 
+  // localforage.setItem("tasks", state);
+  updateLocal();
+
   renderTasks();
 
   //  Clearing input value
   inputEl.value = "";
 });
 
+// On task toggle
 taskContainerEl.addEventListener("click", (e) => {
   if (e.target.tagName === "INPUT") {
     toggleCompleted(e.target.id);
 
     // To show uncompleted first
     state.sort((a, b) => a.isCompleted - b.isCompleted);
+
+    // localforage.setItem("tasks", state);
+    updateLocal();
 
     renderTasks();
   }
