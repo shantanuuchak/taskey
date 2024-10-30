@@ -1,5 +1,6 @@
 import "./index.css";
 import localforage from "localforage";
+import { sortBy as sort } from "lodash";
 import SingleTask from "./components/SingleTask";
 import { titleCase, randomID } from "./utils";
 import { formEl, inputEl, taskContainerEl } from "./domSelection";
@@ -79,14 +80,9 @@ formEl.addEventListener("submit", (e) => {
 // On task toggle
 taskContainerEl.addEventListener("click", (e) => {
   if (e.target.tagName === "INPUT") {
-    toggleCompleted(e.target.id);
-
-    // To show uncompleted first
-    state.sort((a, b) => a.isCompleted - b.isCompleted);
-
-    // localforage.setItem("tasks", state);
+    toggleCompleted(e.target.id); // Change the state
+    state = sort(state, ["isCompleted"]); // Sort on completed
     updateLocal();
-
     renderTasks();
   }
 });
